@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		7319BF7321AC781600AC3F49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7319BF7221AC781600AC3F49 /* main.cpp */; };
+		7372FE2D21BBC8A000F566AB /* sf-item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE1821BBC89F00F566AB /* sf-item.cpp */; };
+		7372FE2E21BBC8A000F566AB /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE1A21BBC89F00F566AB /* engine.cpp */; };
+		7372FE2F21BBC8A000F566AB /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE1C21BBC89F00F566AB /* map.cpp */; };
+		7372FE3021BBC8A000F566AB /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE1E21BBC89F00F566AB /* Item.cpp */; };
+		7372FE3121BBC8A000F566AB /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE1F21BBC89F00F566AB /* menu.cpp */; };
+		7372FE3221BBC8A000F566AB /* enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE2021BBC89F00F566AB /* enemy.cpp */; };
+		7372FE3321BBC8A000F566AB /* sf-entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE2321BBC89F00F566AB /* sf-entity.cpp */; };
+		7372FE3421BBC8A000F566AB /* undead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE2421BBC89F00F566AB /* undead.cpp */; };
+		7372FE3521BBC8A000F566AB /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE2621BBC89F00F566AB /* player.cpp */; };
+		7372FE3621BBC8A000F566AB /* creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE2A21BBC8A000F566AB /* creature.cpp */; };
+		7372FE3D21BBC90400F566AB /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3821BBC90400F566AB /* sfml-window.framework */; };
+		7372FE3E21BBC90400F566AB /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3921BBC90400F566AB /* sfml-graphics.framework */; };
+		7372FE3F21BBC90400F566AB /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3A21BBC90400F566AB /* sfml-audio.framework */; };
+		7372FE4021BBC90400F566AB /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3B21BBC90400F566AB /* sfml-system.framework */; };
+		7372FE4121BBC90400F566AB /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3C21BBC90400F566AB /* SFML.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +40,32 @@
 /* Begin PBXFileReference section */
 		7319BF6F21AC781600AC3F49 /* DungeonGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DungeonGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		7319BF7221AC781600AC3F49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7372FE1721BBC89F00F566AB /* player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = player.hpp; sourceTree = "<group>"; };
+		7372FE1821BBC89F00F566AB /* sf-item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "sf-item.cpp"; sourceTree = "<group>"; };
+		7372FE1921BBC89F00F566AB /* sf-item.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sf-item.hpp"; sourceTree = "<group>"; };
+		7372FE1A21BBC89F00F566AB /* engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = engine.cpp; path = Engine/engine.cpp; sourceTree = "<group>"; };
+		7372FE1B21BBC89F00F566AB /* map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = map.hpp; sourceTree = "<group>"; };
+		7372FE1C21BBC89F00F566AB /* map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
+		7372FE1D21BBC89F00F566AB /* engine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = engine.hpp; path = Engine/engine.hpp; sourceTree = "<group>"; };
+		7372FE1E21BBC89F00F566AB /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		7372FE1F21BBC89F00F566AB /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu.cpp; sourceTree = "<group>"; };
+		7372FE2021BBC89F00F566AB /* enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = enemy.cpp; sourceTree = "<group>"; };
+		7372FE2121BBC89F00F566AB /* creature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = creature.hpp; sourceTree = "<group>"; };
+		7372FE2221BBC89F00F566AB /* Item.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Item.hpp; sourceTree = "<group>"; };
+		7372FE2321BBC89F00F566AB /* sf-entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "sf-entity.cpp"; sourceTree = "<group>"; };
+		7372FE2421BBC89F00F566AB /* undead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = undead.cpp; sourceTree = "<group>"; };
+		7372FE2521BBC89F00F566AB /* undead.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = undead.hpp; sourceTree = "<group>"; };
+		7372FE2621BBC89F00F566AB /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		7372FE2821BBC8A000F566AB /* menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = menu.hpp; sourceTree = "<group>"; };
+		7372FE2921BBC8A000F566AB /* enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = enemy.hpp; sourceTree = "<group>"; };
+		7372FE2A21BBC8A000F566AB /* creature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = creature.cpp; sourceTree = "<group>"; };
+		7372FE2B21BBC8A000F566AB /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
+		7372FE2C21BBC8A000F566AB /* sf-entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sf-entity.hpp"; sourceTree = "<group>"; };
+		7372FE3821BBC90400F566AB /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "../../../../../Library/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		7372FE3921BBC90400F566AB /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		7372FE3A21BBC90400F566AB /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../../../Library/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		7372FE3B21BBC90400F566AB /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		7372FE3C21BBC90400F566AB /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7372FE3D21BBC90400F566AB /* sfml-window.framework in Frameworks */,
+				7372FE3E21BBC90400F566AB /* sfml-graphics.framework in Frameworks */,
+				7372FE3F21BBC90400F566AB /* sfml-audio.framework in Frameworks */,
+				7372FE4021BBC90400F566AB /* sfml-system.framework in Frameworks */,
+				7372FE4121BBC90400F566AB /* SFML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +89,7 @@
 			children = (
 				7319BF7121AC781600AC3F49 /* DungeonGame */,
 				7319BF7021AC781600AC3F49 /* Products */,
+				7372FE3721BBC90300F566AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +104,58 @@
 		7319BF7121AC781600AC3F49 /* DungeonGame */ = {
 			isa = PBXGroup;
 			children = (
+				7372FE1A21BBC89F00F566AB /* engine.cpp */,
+				7372FE1D21BBC89F00F566AB /* engine.hpp */,
+				7372FE4221BBCAAF00F566AB /* Logic source */,
+				7372FE4521BBCB0500F566AB /* Graphics source */,
 				7319BF7221AC781600AC3F49 /* main.cpp */,
 			);
 			path = DungeonGame;
+			sourceTree = "<group>";
+		};
+		7372FE3721BBC90300F566AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7372FE3A21BBC90400F566AB /* sfml-audio.framework */,
+				7372FE3921BBC90400F566AB /* sfml-graphics.framework */,
+				7372FE3B21BBC90400F566AB /* sfml-system.framework */,
+				7372FE3821BBC90400F566AB /* sfml-window.framework */,
+				7372FE3C21BBC90400F566AB /* SFML.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7372FE4221BBCAAF00F566AB /* Logic source */ = {
+			isa = PBXGroup;
+			children = (
+				7372FE2A21BBC8A000F566AB /* creature.cpp */,
+				7372FE2121BBC89F00F566AB /* creature.hpp */,
+				7372FE2021BBC89F00F566AB /* enemy.cpp */,
+				7372FE2921BBC8A000F566AB /* enemy.hpp */,
+				7372FE1E21BBC89F00F566AB /* Item.cpp */,
+				7372FE2221BBC89F00F566AB /* Item.hpp */,
+				7372FE2621BBC89F00F566AB /* player.cpp */,
+				7372FE1721BBC89F00F566AB /* player.hpp */,
+				7372FE2421BBC89F00F566AB /* undead.cpp */,
+				7372FE2521BBC89F00F566AB /* undead.hpp */,
+			);
+			name = "Logic source";
+			sourceTree = "<group>";
+		};
+		7372FE4521BBCB0500F566AB /* Graphics source */ = {
+			isa = PBXGroup;
+			children = (
+				7372FE1C21BBC89F00F566AB /* map.cpp */,
+				7372FE1B21BBC89F00F566AB /* map.hpp */,
+				7372FE1F21BBC89F00F566AB /* menu.cpp */,
+				7372FE2821BBC8A000F566AB /* menu.hpp */,
+				7372FE2321BBC89F00F566AB /* sf-entity.cpp */,
+				7372FE2C21BBC8A000F566AB /* sf-entity.hpp */,
+				7372FE1821BBC89F00F566AB /* sf-item.cpp */,
+				7372FE1921BBC89F00F566AB /* sf-item.hpp */,
+				7372FE2B21BBC8A000F566AB /* view.h */,
+			);
+			name = "Graphics source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +214,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7372FE3621BBC8A000F566AB /* creature.cpp in Sources */,
 				7319BF7321AC781600AC3F49 /* main.cpp in Sources */,
+				7372FE3421BBC8A000F566AB /* undead.cpp in Sources */,
+				7372FE3321BBC8A000F566AB /* sf-entity.cpp in Sources */,
+				7372FE2E21BBC8A000F566AB /* engine.cpp in Sources */,
+				7372FE3121BBC8A000F566AB /* menu.cpp in Sources */,
+				7372FE2F21BBC8A000F566AB /* map.cpp in Sources */,
+				7372FE3521BBC8A000F566AB /* player.cpp in Sources */,
+				7372FE2D21BBC8A000F566AB /* sf-item.cpp in Sources */,
+				7372FE3021BBC8A000F566AB /* Item.cpp in Sources */,
+				7372FE3221BBC8A000F566AB /* enemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +347,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35279NZT97;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /Users/yakovenko/Desktop/myarray/myarray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +361,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35279NZT97;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /Users/yakovenko/Desktop/myarray/myarray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
