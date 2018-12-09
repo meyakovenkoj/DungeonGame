@@ -11,7 +11,7 @@
 
 #include <string>
 #include <stdio.h>
-#include "player.hpp"
+//#include "player.hpp"
 
 class Item{
 protected:
@@ -24,12 +24,15 @@ public:
 	std::string getName(){return name;}
 	int getEff(){return effect;}
 	
-	
+	virtual Item* clone()const = 0;
+	inline std::string debugPrint() const { return this->name; }
 	void setPnt(float _x, float _y){x = _x; y = _y;}
 	void setName(const char * _name){ name = _name;}
 	void setEff(int eff){effect = eff;}
 	
-	virtual void makeEffect() = 0;
+	virtual ~Item(){};
+	
+	//virtual void makeEffect() = 0;
 };
 
 
@@ -38,8 +41,10 @@ class Armor : public Item{
 private:
 	int type;
 public:
-	void makeEffect(Player &player);
-	
+	Armor(){};
+	//virtual void makeEffect();
+	virtual ~Armor();
+	virtual Armor* clone()const;
 	void setType(int _type){type = _type;}
 	
 	int getType(){return type;}
@@ -51,8 +56,12 @@ class Weapon : public Item{
 private:
 	int coef;
 public:
-	void makeEffect(Player &player);
+	//virtual void makeEffect();
 	
+	virtual ~Weapon();
+	
+	//Pure virtual
+	virtual Weapon* clone()const;
 	void setCoef(int c){coef = c;}
 	
 	int getCoef(){return coef;}
@@ -64,8 +73,11 @@ class Potion : public Item{
 private:
 	int type;
 public:
-	void makeEffect(Player &player);
+	//virtual void makeEffect(Player &player);
+	virtual ~Potion();
 	
+	//Pure virtual
+	virtual Potion* clone()const;
 	void setType(int _type){type = _type;}
 	
 	int getType(){return type;}

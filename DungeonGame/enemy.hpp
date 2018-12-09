@@ -18,21 +18,23 @@
 class Enemy: public Creature{
 private:
 	int hp;
+	int lvl;
 	int exp;
 	int dirX, dirY;
 	float aimX, aimY;
-	bool angry;
 public:
+	Enemy(int level);
 	Enemy(Map &map, unsigned int c);
-	int getHP(){return hp;}
-	int getExp(){return exp;}
-	bool isAngry(){return angry;}
-	
+	Enemy(const Enemy &c);//clone
+	int getHP() const {return hp;}
+	int getExp() const {return exp;}
+	int getLvl() const {return lvl;}
 	int takeDamage(int attack);
-	void makeAngry();
+	Enemy &operator = (const Enemy &);
+	//void makeAngry();
 	void setAim(float _x, float _y);
-
-	virtual void move();
+	int distAim();
+	//virtual void move();
 
 	int getMove(int playerX, int playerY);
 };

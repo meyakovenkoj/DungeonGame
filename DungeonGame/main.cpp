@@ -27,4 +27,4 @@ int main()
 //TODO std::array - DONE
 //Movement for undead
 //get items
-//fix enemies
+//fix enemies - DONE

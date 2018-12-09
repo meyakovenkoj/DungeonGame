@@ -8,16 +8,59 @@
 
 #include "enemy.hpp"
 
+Enemy::Enemy(int level)
+{
+	this->lvl = level;
+	this->hpMax = rand()% (level * 10) + (level * 2);
+	this->hp = this->hpMax;
+	this->strength = this->lvl * 1;
+	this->defence = rand() % lvl*5 + 1;
+}
+
+Enemy::Enemy(const Enemy &c){
+	lvl = c.getLvl();
+	hpMax = c.getHpMax();
+	hp = c.getHP();
+	strength = c.getStr();
+	defence = c.getDef();
+	exp = c.getExp();
+	aimX = c.aimX;
+	aimY = c.aimY;
+	alive = true;
+	//name = c.getName();
+	x = c.getX();
+	y = c.getY();
+}
+
+Enemy &Enemy::operator = (const Enemy &c){//test done
+	if(this != &c){
+		lvl = c.getLvl();
+		hpMax = c.getHpMax();
+		hp = c.getHP();
+		strength = c.getStr();
+		defence = c.getDef();
+		exp = c.getExp();
+		aimX = c.aimX;
+		aimY = c.aimY;
+		alive = true;
+		//name = c.getName();
+		x = c.getX();
+		y = c.getY();
+	}
+	return *this;
+}
+
 Enemy::Enemy(Map &map, unsigned int c){
-	hp = 10;
+	int level = rand() % 10 + 1;
+	this->lvl = level;
+	this->hpMax = (rand() % (level * 10)) + (level * 2);
+	this->hp = this->hpMax;
+	this->strength = this->lvl * 1;
+	this->defence = rand() % lvl*5 + 1;
 	exp = 4;
 	aimX = 224;
 	aimY = 224;
-	angry = false;
 	alive = true;
-	health = 5;
-	defence = 3;
-	strength = 3;
 	name = "monster";
 	
 	int randomElementX = 0;
@@ -41,9 +84,10 @@ int Enemy::takeDamage(int attack) {
 	attack -= defence;
 
 	if(attack > 0) {
-		health -= attack;
+		hp -= attack;
 
-		if(health <= 0) {
+		if(hp <= 0) {
+			alive = false;
 			return exp;
 		}
 	}
@@ -54,6 +98,8 @@ int Enemy::takeDamage(int attack) {
 
 int Enemy::getMove(int playerX, int playerY)
 {
+	if(!hp)
+		return -1;
 	static std::default_random_engine randEngine((unsigned int)time(NULL));
 	std::uniform_int_distribution<int> moveRoll(0, 6);
 	int distance;
@@ -101,73 +147,14 @@ int Enemy::getMove(int playerX, int playerY)
 }
 
 
-void Enemy::move() {
-	makeAngry();
-	
-	int curX = x/32;
-	int curY = y/32;
-	
-	int setX = curX + dirX;
-	int setY = curY + dirY;
-	
-	bool can = true;
-	
-	int b = 0;
-	
-	/*while(can){
-		if(map.TileMap[setY][setX] == '2'){
-			can = false;
-			break;
-		}
-		switch (b) {
-			case 0:
-				setX--;
-				setY--;
-				b++;
-				break;
-			case 1:
-				setY++;
-				b++;
-				break;
-			case 2:
-				setX++;
-				setY++;
-				b++;
-				break;
-			case 3:
-				can = false;
-				break;
-			default:
-				break;
-		}
-
-	}
-	if(map.TileMap[setY][setX] == '2'){
-	x = setX*32;
-	y = setY*32;
-	}*/
-}
 
 void Enemy::setAim(float _x, float _y){
 	aimX = _x;
 	aimY = _y;
 }
 
-void Enemy::makeAngry(){
-	float l = sqrt((x-aimX)*(x-aimX)+(y-aimY)*(y-aimY));
-	if(l < 10.0){
-		angry = true;
-		float dx = aimX - x;
-		float dy = aimY - y;
-		dx /= l;
-		dy /= l;
-		dirX = (int) dx;
-		dirY = (int) dy;
-	}
-	else{
-		angry = false;
-		dirY = 0;
-		dirX = 1;
-	}
-	
+int Enemy::distAim(){
+	int _x = abs((int)(x-aimX));
+	int _y = abs((int)(y-aimY));
+	return _x + _y;
 }

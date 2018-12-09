@@ -10,18 +10,24 @@
 #define menu_h
 #include <SFML/Graphics.hpp>
 #include <sstream>
-#include "sf-entity.hpp"
+#include "player.hpp"
 
+using namespace sf;
 
 class Menu{
 private:
 	Sprite s_quest;
 	bool showMissionText = true;
 	Text text;
+	Texture quest_texture;
+	Font font;
 public:
+	Menu(){}
 	Menu(View view);
-	void getInfo(Entity& p);
+	void create(View view);
+	void getInfo(Player& p, View view);
 	void draw(RenderWindow& window);
+	void unshow(){showMissionText = true;}
 };
 
 

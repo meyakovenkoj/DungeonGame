@@ -8,15 +8,43 @@
 
 #include "Item.hpp"
 
-void Armor::makeEffect(Player &player){
-	player.upDef(effect);
+//void Armor::makeEffect(Player &player){
+//	player.upDef(effect);
+//}
+//
+//void Weapon::makeEffect(Player &player){
+//	player.upStr(effect);
+//}
+//
+//void Potion::makeEffect(Player &player){
+//	player.upHealth(effect);
+//}
+Armor::~Armor()
+{
+	
 }
 
-void Weapon::makeEffect(Player &player){
-	player.upStr(effect);
+Armor* Armor::clone()const
+{
+	return new Armor(*this);
 }
 
-void Potion::makeEffect(Player &player){
-	player.upHealth(effect);
+Weapon::~Weapon()
+{
+	
 }
 
+Weapon* Weapon::clone()const
+{
+	return new Weapon(*this);
+}
+
+Potion::~Potion()
+{
+	
+}
+
+Potion* Potion::clone()const
+{
+	return new Potion(*this);
+}

@@ -29,9 +29,10 @@ public:
 	void update(Map & Map);
 	float getX(){return x;}
 	float getY(){return y;}
+	
 	void setDir(int d){dir = d;}
 	Sprite& getSprite(){return sprite;}
-	int control();
+	void control(int c, Map& Map);
 	bool canMove(Map & Map);
 };
 

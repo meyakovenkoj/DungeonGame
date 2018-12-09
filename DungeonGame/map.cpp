@@ -86,6 +86,6 @@ void Map::drawMap(RenderWindow& window, View &view){
 		}
 }
 
-char Map::getchar(int i, int j){
+char& Map::getchar(int i, int j){
 	return TileMap[i][j];
 }

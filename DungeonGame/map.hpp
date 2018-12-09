@@ -32,7 +32,7 @@ public:
 	friend class Enemy;
 	friend class Entity;
 	friend class Item;
-	char getchar(int i, int j);
+	char& getchar(int i, int j);
 	void setMap(std::string filename);
 	void drawMap(RenderWindow& window, View &view);
 	//std::vector<std::string>& getMap(){ return TileMap;}//get one

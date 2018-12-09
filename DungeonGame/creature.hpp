@@ -18,25 +18,25 @@
 class Creature{
 protected:
 	float x,y;
-	int health;
+	int hpMax;
 	int defence;
 	int strength;
 	bool alive;
 	std::string name;
 public:
 	Creature(){}
-	float getX(){return x;}
-	float getY(){return y;}
-	int getHealth(){return health;}
-	int getStr(){return strength;}
-	std::string getName(){return name;}
-	int getDef(){return defence;}
+	float getX() const {return x;}
+	float getY() const {return y;}
+	int getHpMax() const {return hpMax;}
+	int getStr() const {return strength;}
+	std::string getName() const {return name;}
+	int getDef() const {return defence;}
 	bool isAlive(){return alive;}
 	
 	
 	void setPnt(float _x, float _y){x = _x; y = _y;}
 	void setName(const char * _name){ name = _name;}
-	void setHealth(int h){health = h;}
+	void setHealth(int h){hpMax = h;}
 	void setAlive(bool a){alive = a;}
 	void setStr(int str){strength = str;}
 	void setDef(int def){defence = def;}
@@ -45,7 +45,7 @@ public:
 	virtual int takeDamage(int attack){return attack;}
 	void update(float t);
 	int attack();
-	virtual void move() = 0;
+	//virtual void move() = 0;
 	virtual ~Creature() = default;
 };
 

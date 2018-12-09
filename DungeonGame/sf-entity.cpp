@@ -39,27 +39,7 @@ void Entity::create(std::string F, float X, float Y, float W, float H){
 }
 
 void Entity::update(Map & Map){
-	int c = control();
-	switch (dir) {
-		case 0:
-			dx = 32;
-			dy = 0;
-			break;
-		case 1:
-			dx = -32;
-			dy = 0;
-			break;
-		case 2:
-			dx = 0;
-			dy = 32;
-			break;
-		case 3:
-			dx = 0;
-			dy = -32;
-			break;
-	}
-	
-	if (c&&canMove(Map)){
+	if (canMove(Map)){
 		x += dx;
 		y += dy;
 		sprite.setPosition(x, y);
@@ -81,26 +61,34 @@ bool Entity::canMove(Map & Map){
 	return true;
 }
 
-int Entity::control(){
-	if(Keyboard::isKeyPressed(Keyboard::Left)){
-		setDir(1);
-		sprite.setTextureRect(IntRect(0,0,w,h));
-		return 1;
+void Entity::control(int c, Map& Map){
+	switch(c){
+		case 0:
+			setDir(0);
+			dx = 32;
+			dy = 0;
+			sprite.setTextureRect(IntRect(64,0,w,h));
+			break;
+		case 1:
+			setDir(1);
+			dx = -32;
+			dy = 0;
+			sprite.setTextureRect(IntRect(0,0,w,h));
+			break;
+		case 2:
+			setDir(2);
+			dx = 0;
+			dy = 32;
+			sprite.setTextureRect(IntRect(96,0,w,h));
+			break;
+		case 3:
+			setDir(3);
+			dx = 0;
+			dy = -32;
+			sprite.setTextureRect(IntRect(32,0,w,h));
+			break;
+		default:
+			break;
 	}
-	if(Keyboard::isKeyPressed(Keyboard::Right)){
-		setDir(0);
-		sprite.setTextureRect(IntRect(64,0,w,h));
-		return 1;
-	}
-	if(Keyboard::isKeyPressed(Keyboard::Up)){
-		setDir(3);
-		sprite.setTextureRect(IntRect(32,0,w,h));
-		return 1;
-	}
-	if(Keyboard::isKeyPressed(Keyboard::Down)){
-		setDir(2);
-		sprite.setTextureRect(IntRect(96,0,w,h));
-		return 1;
-	}
-	return 0;
+	update(Map);
 }

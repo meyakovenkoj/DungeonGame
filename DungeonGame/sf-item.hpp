@@ -15,14 +15,14 @@
 
 using namespace sf;
 
-class Item{
+class sfItem{
 private:
 	std::string File;
 	Texture texture;
 	Sprite sprite;
 public:
-	Item(){};
-	Item(std::string F);
+	sfItem(){};
+	sfItem(std::string F);
 	void create(std::string F);
 	void randomMapGenerate(Map &map);
 };

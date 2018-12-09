@@ -13,6 +13,7 @@
 #include "sf-item.hpp"
 #include "sf-entity.hpp"
 #include "enemy.hpp"
+#include "menu.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -23,12 +24,12 @@ private:
 	
 	View view;
 	RenderWindow window;
-	Item it;
+	sfItem it;
 	Entity p;
 	Entity enemy;
 	Map map;
 	Event event;
-	
+	Menu menu;
 	Player me;
 	
 	std::vector<Enemy> enemies;
@@ -37,6 +38,7 @@ public:
 
 	Engine();
 	
+	void input();
 	void start();
 	void updateEnemies();
 	void drawEnemies();

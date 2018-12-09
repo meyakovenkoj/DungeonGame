@@ -8,7 +8,7 @@
 
 #include "sf-item.hpp"
 
-Item::Item(std::string F){
+sfItem::sfItem(std::string F){
 	File = F;
 	texture.loadFromFile("/Users/yakovenko/Documents/Infa/classes-for-game/classes-for-game/images/" + File);
 	sprite.setTexture(texture);
@@ -16,14 +16,14 @@ Item::Item(std::string F){
 
 }
 
-void Item::create(std::string F){
+void sfItem::create(std::string F){
 	File = F;
 	texture.loadFromFile("/Users/yakovenko/Documents/Infa/classes-for-game/classes-for-game/images/" + File);
 	sprite.setTexture(texture);
 	sprite.setTextureRect(IntRect(0,0,32,32));
 }
 
-void Item::randomMapGenerate(Map & map){
+void sfItem::randomMapGenerate(Map & map){
 	int randomElementX = 0;
 	int randomElementY = 0;
 	srand((int)time(NULL));
@@ -32,8 +32,8 @@ void Item::randomMapGenerate(Map & map){
 		randomElementX = 1 + rand() % (WIDTH_MAP - 1);
 		randomElementY = 1 + rand() % (HEIGHT_MAP - 1);
 		
-		if(map.TileMap[randomElementY][randomElementX] == '2'){
-			map.TileMap[randomElementY][randomElementX] = '3';
+		if(map.getchar(randomElementY, randomElementX) == '2'){
+			map.getchar(randomElementY, randomElementX) = '3';
 			countStone--;
 		}
 	}

@@ -13,6 +13,7 @@
 
 //#include <vector>
 #include "creature.hpp"
+#include "Inventory.h"
 
 class Player: public Creature{
 private:
@@ -21,26 +22,30 @@ private:
 	unsigned int lvl;
 	float w, h, dx,dy, speed;
 	int dir;
+	Inventory inventory;
+	Weapon weapon;
+	Armor armor_head;
+	Armor armor_chest;
+	Armor armor_arms;
+	Armor armor_legs;
 public:
 	Player();
-	Player( float X, float Y, float W, float H, const char * f);
+	Player( float X, float Y);
 	void takeObject();
 	void useObject();
-	virtual void move();
 	int takeDamage(int attack);
 	void addExperience(int _experience);
 	Player& setDir(int d){dir = d; return *this;}
-	//void update(float time, String TileMap[], float &CurrentFrame);
 	float getX(){return x;}
 	float getY(){return y;}
-	//void checkCollisionWithMap(String TileMap[], float Dx, float Dy);
-	int getHealth(){return health;}
+	int getHp(){return hp;}
+	int getLvl(){return lvl;}
+	int getExp(){return exp;}
 	Player& upX(float dx){x += dx; return *this;}
 	Player& upY(float dy){y += dy; return *this;}
-	void upHealth(int h){health += h;}
+	void upHp(int h){hp += h;}
 	void upStr(int str){strength += str;}
 	void upDef(int def){defence += def;}
-	//void control(float time, float &CurrentFrame);
 };
 
 #endif /* player_hpp */

@@ -11,16 +11,20 @@
 
 #include <stdio.h>
 #include "creature.hpp"
+#include "player.hpp"
 
 class Undead: public Creature{
 private:
 	float aimX, aimY;
 	int lvl;
+	int hp;
 public:
 	Undead(int level);
 	void searchAim();
-	virtual void move();
+	//virtual void move();
+	int getMove();
 	void attack();
+	int takeDamage(int attack);
 	void setAim(float _x, float _y);
 };
 

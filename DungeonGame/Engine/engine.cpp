@@ -17,7 +17,7 @@ Engine::Engine()
 	p.create("player2.png", 224, 224, 32, 32);
 	map.create("map.tmx");
 	enemy.create("monster.png", 224, 256, 32, 32);
-	
+	menu.create(view);
 	it.randomMapGenerate(map);
 	
 	unsigned int c = (unsigned int)time(0);
@@ -33,7 +33,7 @@ void Engine::start()
 	while (window.isOpen())
 	{
 		
-		while (window.waitEvent(event))
+		while (window.waitEvent(event)&&(me.getHp()>0))
 		{
 			switch (event.type)
 			{
@@ -44,11 +44,9 @@ void Engine::start()
 					
 					
 				case sf::Event::KeyPressed:
-					if(Keyboard::isKeyPressed(Keyboard::Escape)){
-						window.close();
-						break;
-					}
-					p.update(map);
+					menu.unshow();
+					input();
+					//p.update(map);
 					me.setPnt(p.getSprite().getPosition().x, p.getSprite().getPosition().y);
 					updateEnemies();
 					break;
@@ -72,6 +70,8 @@ void Engine::start()
 		
 		drawEnemies();
 		
+		menu.draw(window);
+		
 		window.display();
 	}
 }
@@ -94,6 +94,7 @@ void Engine::updateEnemies() {
 	for (int i = 0; i < enemies.size(); i++) {
 		enemyX = enemies[i].getX()/32;
 		enemyY = enemies[i].getY()/32;
+		enemies[i].setAim(playerX*32, playerY*32);
 		aiMove = enemies[i].getMove(playerX, playerY);
 		
 		switch (aiMove) {
@@ -118,8 +119,15 @@ void Engine::processEnemyMove(int enemyIndex, int targetX, int targetY)
 {
 	char moveTile = map.getchar(targetY, targetX);
 	
+	if((targetX == p.getX()/32)&&(targetY == p.getY()/32))
+		return;
+	
 	switch (moveTile) {
 		case '2':
+			for (int i = 0; i < enemies.size(); i++) {
+				if((i != enemyIndex)&&(targetX == enemies[i].getX()/32)&&(targetY == enemies[i].getY()/32))
+					return;
+			}
 			enemies[enemyIndex].setPnt(targetX*32, targetY*32);
 			break;
 		case '1':
