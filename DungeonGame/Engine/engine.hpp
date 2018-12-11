@@ -9,11 +9,14 @@
 #ifndef engine_hpp
 #define engine_hpp
 
+//
+
 #include "player.hpp"
 #include "sf-item.hpp"
 #include "sf-entity.hpp"
 #include "enemy.hpp"
 #include "menu.hpp"
+#include "undead.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -27,12 +30,14 @@ private:
 	sfItem it;
 	Entity p;
 	Entity enemy;
+	Entity undead;
 	Map map;
 	Event event;
 	Menu menu;
 	Player me;
 	
 	std::vector<Enemy> enemies;
+	std::vector<Undead> undeads;
 	
 public:
 
@@ -42,6 +47,7 @@ public:
 	void start();
 	void updateEnemies();
 	void drawEnemies();
+	void drawUndead();
 	void processEnemyMove(int enemyIndex, int targetX, int targetY);
 };
 #endif /* engine_hpp */

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "creature.hpp"
 #include "player.hpp"
+#include "enemy.hpp"
 
 class Undead: public Creature{
 private:
@@ -20,6 +21,7 @@ private:
 	int hp;
 public:
 	Undead(int level);
+	Undead(Enemy c);
 	void searchAim();
 	//virtual void move();
 	int getMove();

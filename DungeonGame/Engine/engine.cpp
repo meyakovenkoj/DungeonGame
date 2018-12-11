@@ -15,6 +15,7 @@ Engine::Engine()
 	view.reset(FloatRect(0,0,640,480));
 	it.create("walls.png");
 	p.create("player2.png", 224, 224, 32, 32);
+	undead.create("monster.png",0, 0, 32, 32);
 	map.create("map.tmx");
 	enemy.create("monster.png", 224, 256, 32, 32);
 	menu.create(view);
@@ -32,8 +33,8 @@ void Engine::start()
 {
 	while (window.isOpen())
 	{
-		
-		while (window.waitEvent(event)&&(me.getHp()>0))
+		if(window.waitEvent(event))
+		//while (window.waitEvent(event))
 		{
 			switch (event.type)
 			{
@@ -44,7 +45,7 @@ void Engine::start()
 					
 					
 				case sf::Event::KeyPressed:
-					menu.unshow();
+					//menu.unshow();
 					input();
 					//p.update(map);
 					me.setPnt(p.getSprite().getPosition().x, p.getSprite().getPosition().y);
@@ -56,8 +57,35 @@ void Engine::start()
 					break;
 			}
 			
-			break;
+			//break;
 		}
+		
+		if(me.getHp() <= 0){
+			Text dead;
+			Font font;
+			font.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/CyrilicOld.TTF");
+			dead.setFont(font);
+			dead.setCharacterSize(30);
+			dead.setFillColor(Color::Red);
+			dead.setStyle(Text::Bold);
+			dead.setString("\tYOU'RE DEAD\n\nPRESS ESC TO OUT");
+			dead.setPosition(view.getCenter().x - 150, view.getCenter().y-50);
+			window.draw(dead);
+			window.display();
+			while (window.waitEvent(event))
+			{
+				if(event.type == Event::Closed)
+				   window.close();
+				
+				if (Keyboard::isKeyPressed(Keyboard::Escape))
+				{
+					window.close();
+				}
+				
+			}
+		}
+					
+		
 		view.setCenter(p.getX(), p.getY());
 		
 		window.setView(view);
@@ -69,6 +97,12 @@ void Engine::start()
 		window.draw(p.getSprite());
 		
 		drawEnemies();
+		
+		drawUndead();
+		
+		menu.getInfo(me);
+		
+		menu.setPos(view);
 		
 		menu.draw(window);
 		
@@ -143,5 +177,12 @@ void Engine::drawEnemies(){
 	for (auto & element : enemies) {
 		enemy.getSprite().setPosition(element.getX(), element.getY());
 		window.draw(enemy.getSprite());
+	}
+}
+
+void Engine::drawUndead(){
+	for (auto & element : undeads) {
+		undead.getSprite().setPosition(element.getX(), element.getY());
+		window.draw(undead.getSprite());
 	}
 }

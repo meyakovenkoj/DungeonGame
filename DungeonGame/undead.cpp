@@ -12,6 +12,15 @@
 Undead::Undead(int level){
 	
 }
+Undead::Undead(Enemy c){
+	defence = c.getDef();
+	strength = c.getStr();
+	name = "undead";
+	x = c.getX();
+	y = c.getY();
+	setAlive(true);
+	lvl = c.getLvl();
+}
 
 void Undead::searchAim(){
 	

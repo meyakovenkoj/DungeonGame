@@ -38,6 +38,8 @@ void Engine::input()
 				int exp = enemies[i].takeDamage(me.attack());
 				me.addExperience(exp);
 				if(!enemies[i].isAlive()){
+					Undead buf(enemies[i]);
+					undeads.push_back(buf);
 					enemies[i] = enemies.back();
 					enemies.pop_back();
 					i--;
@@ -49,6 +51,6 @@ void Engine::input()
 	}
 	
 	if(Keyboard::isKeyPressed(Keyboard::Tab)){
-		menu.getInfo(me, view);
+		menu.getInfo(me);
 	}
 }

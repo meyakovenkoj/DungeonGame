@@ -25,9 +25,10 @@ public:
 	Menu(){}
 	Menu(View view);
 	void create(View view);
-	void getInfo(Player& p, View view);
+	void getInfo(Player& p);
 	void draw(RenderWindow& window);
 	void unshow(){showMissionText = true;}
+	void setPos(View view);
 };
 
 
