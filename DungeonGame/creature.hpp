@@ -42,7 +42,7 @@ public:
 	void setDef(int def){defence = def;}
 	
 	
-	virtual int takeDamage(int attack){return attack;}
+	virtual int takeDamage(int attack) = 0;
 	void update(float t);
 	int attack();
 	//virtual void move() = 0;

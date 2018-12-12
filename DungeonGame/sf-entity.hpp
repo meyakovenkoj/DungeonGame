@@ -31,6 +31,7 @@ public:
 	float getY(){return y;}
 	
 	void setDir(int d){dir = d;}
+	Texture& getTexture(){return texture;}
 	Sprite& getSprite(){return sprite;}
 	void control(int c, Map& Map);
 	bool canMove(Map & Map);

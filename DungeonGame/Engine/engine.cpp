@@ -13,13 +13,27 @@ Engine::Engine()
 	window.create(VideoMode(640, 480), "Dungeon");
 	
 	view.reset(FloatRect(0,0,640,480));
-	it.create("walls.png");
+	it.create("items1.png");
 	p.create("player2.png", 224, 224, 32, 32);
-	undead.create("monster.png",0, 0, 32, 32);
+	undead.create("undead.png",0, 0, 32, 32);
+	
+	//KOSTIL'
+	undead.getTexture().loadFromFile("/Users/yakovenko/Desktop/undead.png");
+	undead.getSprite().setTexture(undead.getTexture());
+	//this
+	
 	map.create("map.tmx");
 	enemy.create("monster.png", 224, 256, 32, 32);
 	menu.create(view);
-	it.randomMapGenerate(map);
+	
+	
+	shootBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/audio/quietShaker.ogg");
+	shoot.setBuffer(shootBuffer);
+	
+	dieBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/audio/death.ogg");
+	die.setBuffer(dieBuffer);
+	
+	//it.randomMapGenerate(map);
 	
 	unsigned int c = (unsigned int)time(0);
 	
@@ -27,12 +41,41 @@ Engine::Engine()
 		Enemy buf(map, c);
 		enemies.push_back(buf);
 	}
+	for(int i = 0; i < 100; i++){
+		Item* buf;
+		int c = rand()%10;
+		switch (c) {
+			case 1:
+			case 2:
+			case 3:
+				buf = new Armor();
+				break;
+			case 4:
+			case 5:
+			case 6:
+				buf = new Weapon();
+				break;
+			case 7:
+			case 8:
+			case 9:
+				buf = new Potion();
+				break;
+			default:
+				buf = new Potion();
+				break;
+		}
+		buf->setCOORD(map);
+		items.push_back(buf);
+	}
 }
 
 void Engine::start()
 {
+	bool select = false;
 	while (window.isOpen())
 	{
+		Vector2i pixelPos = Mouse::getPosition(window);//забираем коорд курсора
+		Vector2f pos = window.mapPixelToCoords(pixelPos);
 		if(window.waitEvent(event))
 		//while (window.waitEvent(event))
 		{
@@ -43,6 +86,25 @@ void Engine::start()
 					window.close();
 					break;
 					
+				case Event::MouseButtonPressed:
+					if (event.key.code == Mouse::Left){
+							if (p.getSprite().getGlobalBounds().contains(pos.x, pos.y))
+							{
+								p.getSprite().setColor(Color::Green);
+								select = true;
+							}
+
+					}
+					if (select)//если выбрали объект
+						if (event.key.code == Mouse::Right){
+							p.getSprite().setColor(Color::White);
+							pixelPos = Mouse::getPosition(window);//забираем коорд курсора
+							pos = window.mapPixelToCoords(pixelPos);
+							for(auto & elem : undeads)
+								elem.setAim(pos.x, pos.y);
+						}
+					break;
+					
 					
 				case sf::Event::KeyPressed:
 					//menu.unshow();
@@ -50,6 +112,7 @@ void Engine::start()
 					//p.update(map);
 					me.setPnt(p.getSprite().getPosition().x, p.getSprite().getPosition().y);
 					updateEnemies();
+					updateUndead();
 					break;
 					
 					
@@ -72,6 +135,7 @@ void Engine::start()
 			dead.setPosition(view.getCenter().x - 150, view.getCenter().y-50);
 			window.draw(dead);
 			window.display();
+			die.play();
 			while (window.waitEvent(event))
 			{
 				if(event.type == Event::Closed)
@@ -84,7 +148,8 @@ void Engine::start()
 				
 			}
 		}
-					
+		
+		
 		
 		view.setCenter(p.getX(), p.getY());
 		
@@ -94,11 +159,13 @@ void Engine::start()
 		
 		map.drawMap(window, view);
 		
-		window.draw(p.getSprite());
-		
 		drawEnemies();
 		
 		drawUndead();
+		
+		drawItem();
+		
+		window.draw(p.getSprite());
 		
 		menu.getInfo(me);
 		
@@ -180,9 +247,96 @@ void Engine::drawEnemies(){
 	}
 }
 
+void Engine::updateUndead() {
+	int aiMove;
+	int undeadX;
+	int undeadY;
+	
+	
+	for (int i = 0; i < undeads.size(); i++) {
+		undeadX = undeads[i].getX()/32;
+		undeadY = undeads[i].getY()/32;
+		aiMove = undeads[i].getMove();
+		
+		switch (aiMove) {
+			case 1: //Up
+				processUndeadMove(i, undeadX, undeadY - 1);
+				break;
+			case 2: //Down
+				processUndeadMove(i, undeadX, undeadY + 1);
+				break;
+			case 0: //Left
+				processUndeadMove(i, undeadX - 1, undeadY);
+				break;
+			case 3: //Right
+				processUndeadMove(i, undeadX + 1, undeadY);
+				break;
+		}
+	}
+}
+
+
+void Engine::processUndeadMove(int undeadIndex, int targetX, int targetY)
+{
+	char moveTile = map.getchar(targetY, targetX);
+	
+	if((targetX == p.getX()/32)&&(targetY == p.getY()/32))
+		return;
+	
+	switch (moveTile) {
+		case '2':
+			for (int i = 0; i < undeads.size(); i++) {
+				if((i != undeadIndex)&&(targetX == undeads[i].getX()/32)&&(targetY == undeads[i].getY()/32))
+					return;
+			}
+			undeads[undeadIndex].setPnt(targetX*32, targetY*32);
+			break;
+		case '1':
+			break;
+			// something TODO
+		default:
+			break;
+	}
+	
+}
+
 void Engine::drawUndead(){
 	for (auto & element : undeads) {
 		undead.getSprite().setPosition(element.getX(), element.getY());
 		window.draw(undead.getSprite());
+	}
+}
+
+void Engine::drawItem(){
+	for (auto & element : items) {
+		it.getSprite().setPosition(element->getX(), element->getY());
+		//std::cout <<element->getX() << "   " << element->getY() <<std::endl;
+		switch (element->what()) {
+			case 0:
+				it.getSprite().setTextureRect(IntRect(96,0,32,32));
+				break;
+			case 1:
+				it.getSprite().setTextureRect(IntRect(32,0,32,32));
+				break;
+			case 2:
+				it.getSprite().setTextureRect(IntRect(128,0,32,32));
+				break;
+			default:
+				break;
+		}
+		window.draw(it.getSprite());
+	}
+}
+
+void Engine::processItems(){
+	int playerX = me.getX()/32;
+	int playerY = me.getY()/32;
+	for (int i = 0; i < items.size(); i++) {
+		if((playerX == items[i]->getX()/32)&&(playerY == items[i]->getY()/32)){
+			items[i]->makeEffect(me);
+			items[i] = items.back();
+			items.pop_back();
+			i--;
+		}
 	}
 }

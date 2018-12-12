@@ -60,9 +60,7 @@ int Undead::getMove()
 		}
 }
 
-void Undead::attack(){
-	
-}
+
 
 void addExp(Player& p, int exp){
 	p.addExperience(exp);
@@ -83,5 +81,6 @@ int Undead::takeDamage(int attack) {
 }
 
 void Undead::setAim(float _x, float _y){
-	
+	aimX = _x;
+	aimY = _y;
 }

@@ -25,8 +25,7 @@ public:
 	void searchAim();
 	//virtual void move();
 	int getMove();
-	void attack();
-	int takeDamage(int attack);
+	virtual int takeDamage(int attack);
 	void setAim(float _x, float _y);
 };
 

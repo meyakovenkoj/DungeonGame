@@ -14,10 +14,12 @@
 #include "player.hpp"
 #include "sf-item.hpp"
 #include "sf-entity.hpp"
+#include "Item.hpp"
 #include "enemy.hpp"
 #include "menu.hpp"
 #include "undead.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 using namespace sf;
 
@@ -35,9 +37,14 @@ private:
 	Event event;
 	Menu menu;
 	Player me;
+	SoundBuffer shootBuffer;
+	Sound shoot;
+	SoundBuffer dieBuffer;
+	Sound die;
 	
 	std::vector<Enemy> enemies;
 	std::vector<Undead> undeads;
+	std::vector<Item *> items;
 	
 public:
 
@@ -46,8 +53,12 @@ public:
 	void input();
 	void start();
 	void updateEnemies();
+	void updateUndead();
 	void drawEnemies();
 	void drawUndead();
+	void drawItem();
+	void processItems();
 	void processEnemyMove(int enemyIndex, int targetX, int targetY);
+	void processUndeadMove(int undeadIndex, int targetX, int targetY);
 };
 #endif /* engine_hpp */

@@ -24,6 +24,7 @@ public:
 	sfItem(){};
 	sfItem(std::string F);
 	void create(std::string F);
+	Sprite& getSprite(){return sprite;};
 	void randomMapGenerate(Map &map);
 };
 

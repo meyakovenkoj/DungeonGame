@@ -12,8 +12,18 @@
 #include <stdio.h>
 
 //#include <vector>
+#include <string>
+#include <sstream>
 #include "creature.hpp"
-#include "Inventory.h"
+#include "myarray.hpp"
+//#include "Item.hpp"
+//#include "Inventory.h"
+
+struct Spec {
+	int points;
+	std::string name;
+	std::string shortname;
+};
 
 class Player: public Creature{
 private:
@@ -22,12 +32,16 @@ private:
 	unsigned int lvl;
 	float w, h, dx,dy, speed;
 	int dir;
-	Inventory inventory;
-	Weapon weapon;
-	Armor armor_head;
-	Armor armor_chest;
-	Armor armor_arms;
-	Armor armor_legs;
+	enum {STRENGTH, MANA, LOVKOST, NECRO, NONE};
+	std::ostringstream log;
+	//array<Armor, 3> armor;
+	array<Spec, 5> sp;
+	//Inventory inventory;
+//	Weapon weapon;
+//	Armor armor_head;
+//	Armor armor_chest;
+//	Armor armor_arms;
+//	Armor armor_legs;
 public:
 	Player();
 	Player( float X, float Y);
@@ -46,6 +60,8 @@ public:
 	void upHp(int h){hp += h;}
 	void upStr(int str){strength += str;}
 	void upDef(int def){defence += def;}
+	std::string setSTR();
+	std::ostringstream & getLog(){return log;}
 };
 
 #endif /* player_hpp */

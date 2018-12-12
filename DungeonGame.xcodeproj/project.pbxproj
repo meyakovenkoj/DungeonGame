@@ -40,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7311599521C06329008E0101 /* myarray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myarray.hpp; sourceTree = "<group>"; };
 		7319BF6F21AC781600AC3F49 /* DungeonGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DungeonGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		7319BF7221AC781600AC3F49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7372FE1721BBC89F00F566AB /* player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = player.hpp; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		7372FE2821BBC8A000F566AB /* menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = menu.hpp; sourceTree = "<group>"; };
 		7372FE2921BBC8A000F566AB /* enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = enemy.hpp; sourceTree = "<group>"; };
 		7372FE2A21BBC8A000F566AB /* creature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = creature.cpp; sourceTree = "<group>"; };
-		7372FE2B21BBC8A000F566AB /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
 		7372FE2C21BBC8A000F566AB /* sf-entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sf-entity.hpp"; sourceTree = "<group>"; };
 		7372FE3821BBC90400F566AB /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "../../../../../Library/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
 		7372FE3921BBC90400F566AB /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 		7319BF7121AC781600AC3F49 /* DungeonGame */ = {
 			isa = PBXGroup;
 			children = (
+				7311599521C06329008E0101 /* myarray.hpp */,
 				7372FE4621BC70E500F566AB /* input.cpp */,
 				7372FE1A21BBC89F00F566AB /* engine.cpp */,
 				7372FE1D21BBC89F00F566AB /* engine.hpp */,
@@ -161,7 +162,6 @@
 				7372FE2C21BBC8A000F566AB /* sf-entity.hpp */,
 				7372FE1821BBC89F00F566AB /* sf-item.cpp */,
 				7372FE1921BBC89F00F566AB /* sf-item.hpp */,
-				7372FE2B21BBC8A000F566AB /* view.h */,
 			);
 			name = "Graphics source";
 			sourceTree = "<group>";

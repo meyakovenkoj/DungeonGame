@@ -25,6 +25,6 @@ int main()
 	return 0;
 }
 //TODO std::array - DONE
-//Movement for undead
-//get items
+//Movement for undead - ALMOST
+//get items - DONE
 //fix enemies - DONE

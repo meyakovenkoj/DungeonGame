@@ -43,17 +43,8 @@ Menu::Menu(View view){
 
 void Menu::getInfo(Player& p){
 	//if (showMissionText) {
-		std::ostringstream EntityHealthString;
-		EntityHealthString << p.getHp();
-		std::ostringstream Expstr;
-		Expstr << p.getExp();
-		std::ostringstream Lvlstr;
-		Lvlstr << p.getLvl();
-		std::ostringstream Strstr;
-		Strstr << p.getStr();
-		std::ostringstream Defstr;
-		Defstr << p.getDef();
-	text.setString("Health: " + EntityHealthString.str() + "\nExperience: " + Expstr.str() + "\nLevel: " + Lvlstr.str() + "\nStrength: "+Strstr.str() + "\nDefence: " + Defstr.str()+"\n\n\nInventory:\n");
+	
+	text.setString(p.setSTR() + "\n\n\n\n\n\n" + p.getLog().str());
 		//showMissionText = false;
 	//}else
 //	showMissionText = true;

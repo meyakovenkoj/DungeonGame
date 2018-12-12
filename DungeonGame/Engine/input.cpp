@@ -30,24 +30,36 @@ void Engine::input()
 		p.control(2, map);
 	}
 	
+	if(Keyboard::isKeyPressed(Keyboard::LShift)){
+		
+		processItems();
+	}
+	
 	if(Keyboard::isKeyPressed(Keyboard::Space)){
 		for (int i = 0; i < enemies.size(); i++) {
-			std::cout << enemies[i].distAim()/32 << std::endl;
+			//std::cout << enemies[i].distAim()/32 << std::endl;
 			if(enemies[i].distAim()/32 <= 1){
+
+				shoot.play();
+				me.getLog().str("");
+				me.getLog().clear();
 				me.takeDamage(enemies[i].attack());
-				int exp = enemies[i].takeDamage(me.attack());
+				int c = me.attack();
+				me.getLog() << "You try to hit\nmonster \nwith " << c <<'\n';
+				int exp = enemies[i].takeDamage(c);
 				me.addExperience(exp);
+				me.getLog() << "You earned " << exp << "\nof experience\n";
 				if(!enemies[i].isAlive()){
 					Undead buf(enemies[i]);
 					undeads.push_back(buf);
 					enemies[i] = enemies.back();
 					enemies.pop_back();
 					i--;
-					std::cout << "killed\n";
+					//std::cout << "killed\n";
 				}
 			}
 		}
-		std::cout << "----------------\n";
+		//std::cout << "----------------\n";
 	}
 	
 	if(Keyboard::isKeyPressed(Keyboard::Tab)){
