@@ -16,7 +16,6 @@ Engine::Engine()
 	it.create("items1.png");
 	p.create("player2.png", 224, 224, 32, 32);
 	undead.create("undead.png",0, 0, 32, 32);
-	
 	//KOSTIL'
 	undead.getTexture().loadFromFile("/Users/yakovenko/Desktop/undead.png");
 	undead.getSprite().setTexture(undead.getTexture());

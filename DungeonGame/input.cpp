@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include "engine.hpp"
-
 void Engine::input()
 {
 	if (Keyboard::isKeyPressed(Keyboard::Escape))

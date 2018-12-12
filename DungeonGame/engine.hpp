@@ -47,7 +47,6 @@ private:
 public:
 
 	Engine();
-	
 	void input();
 	void start();
 	void updateEnemies();
