@@ -47,9 +47,8 @@ public:
 	int getHp(){return hp;}
 	int getLvl(){return lvl;}
 	int getExp(){return exp;}
-
 	void upHp(int h){hp += h;}
-	void upStr(int str){strength += str; sp[STRENGTH].points += str;}
+	void upStr(int str){strength += str;  sp[STRENGTH].points += str;}
 	void upDef(int def){defence += def;}
 	
 	std::string setSTR();
