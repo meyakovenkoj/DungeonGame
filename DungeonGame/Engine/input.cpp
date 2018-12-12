@@ -11,7 +11,6 @@
 
 void Engine::input()
 {
-	// Обрабатываем нажатие Escape
 	if (Keyboard::isKeyPressed(Keyboard::Escape))
 	{
 		window.close();
@@ -37,7 +36,6 @@ void Engine::input()
 	
 	if(Keyboard::isKeyPressed(Keyboard::Space)){
 		for (int i = 0; i < enemies.size(); i++) {
-			//std::cout << enemies[i].distAim()/32 << std::endl;
 			if(enemies[i].distAim()/32 <= 1){
 
 				shoot.play();
@@ -55,11 +53,9 @@ void Engine::input()
 					enemies[i] = enemies.back();
 					enemies.pop_back();
 					i--;
-					//std::cout << "killed\n";
 				}
 			}
 		}
-		//std::cout << "----------------\n";
 	}
 	
 	if(Keyboard::isKeyPressed(Keyboard::Tab)){

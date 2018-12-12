@@ -12,6 +12,7 @@
 Undead::Undead(int level){
 	
 }
+
 Undead::Undead(Enemy c){
 	defence = c.getDef();
 	strength = c.getStr();
@@ -26,20 +27,14 @@ void Undead::searchAim(){
 	
 }
 
-/*void Undead::move(){
-	
-}*/
-
 int Undead::getMove()
 {
-	int distance;
 	int dx = x/32 - aimX;
 	int dy = y/32 - aimY;
 	int adx = abs(dx);
 	int ady = abs(dy);
 	
 	
-	distance = adx + ady;
 	
 		//along x
 		if (adx > ady) {
@@ -58,6 +53,7 @@ int Undead::getMove()
 				return 2;//down
 			}
 		}
+	
 }
 
 

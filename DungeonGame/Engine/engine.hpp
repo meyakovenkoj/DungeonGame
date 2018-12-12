@@ -9,8 +9,6 @@
 #ifndef engine_hpp
 #define engine_hpp
 
-//
-
 #include "player.hpp"
 #include "sf-item.hpp"
 #include "sf-entity.hpp"

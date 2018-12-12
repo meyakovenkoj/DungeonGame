@@ -24,17 +24,15 @@ private:
 	float aimX, aimY;
 public:
 	Enemy(int level);
-	Enemy(Map &map, unsigned int c);
+	Enemy(Map &map);
 	Enemy(const Enemy &c);//clone
 	int getHP() const {return hp;}
 	int getExp() const {return exp;}
 	int getLvl() const {return lvl;}
 	int takeDamage(int attack);
 	Enemy &operator = (const Enemy &);
-	//void makeAngry();
 	void setAim(float _x, float _y);
 	int distAim();
-	//virtual void move();
 
 	int getMove(int playerX, int playerY);
 };

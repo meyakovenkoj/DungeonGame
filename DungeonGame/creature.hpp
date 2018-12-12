@@ -25,6 +25,7 @@ protected:
 	std::string name;
 public:
 	Creature(){}
+	
 	float getX() const {return x;}
 	float getY() const {return y;}
 	int getHpMax() const {return hpMax;}
@@ -45,7 +46,6 @@ public:
 	virtual int takeDamage(int attack) = 0;
 	void update(float t);
 	int attack();
-	//virtual void move() = 0;
 	virtual ~Creature() = default;
 };
 

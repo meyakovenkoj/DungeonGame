@@ -23,7 +23,6 @@ public:
 	Undead(int level);
 	Undead(Enemy c);
 	void searchAim();
-	//virtual void move();
 	int getMove();
 	virtual int takeDamage(int attack);
 	void setAim(float _x, float _y);

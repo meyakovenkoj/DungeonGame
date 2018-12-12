@@ -36,23 +36,6 @@ void Map::setMap(std::string filename){
 	
 }
 
-
-/*void Map::randomMapGenerate(){
-	int randomElementX = 0;
-	int randomElementY = 0;
-	srand((int)time(NULL));
-	int countStone = 2;
-	while(countStone > 0){
-		randomElementX = 1 + rand() % (WIDTH_MAP - 1);
-		randomElementY = 1 + rand() % (WIDTH_MAP - 1);
-		
-		if(TileMap[randomElementY][randomElementX] == ' '){
-			TileMap[randomElementY][randomElementX] = 's';
-			countStone--;
-		}
-	}
-}*/
-
 void Map::drawMap(RenderWindow& window, View &view){
 	Vector2f st = view.getCenter();
 	Vector2u win = window.getSize();

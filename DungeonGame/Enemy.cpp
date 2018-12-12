@@ -27,7 +27,6 @@ Enemy::Enemy(const Enemy &c){
 	aimX = c.aimX;
 	aimY = c.aimY;
 	alive = true;
-	//name = c.getName();
 	x = c.getX();
 	y = c.getY();
 }
@@ -43,20 +42,19 @@ Enemy &Enemy::operator = (const Enemy &c){//test done
 		aimX = c.aimX;
 		aimY = c.aimY;
 		alive = true;
-		//name = c.getName();
 		x = c.getX();
 		y = c.getY();
 	}
 	return *this;
 }
 
-Enemy::Enemy(Map &map, unsigned int c){
+Enemy::Enemy(Map &map){
 	int level = rand() % 10 + 1;
 	this->lvl = level;
 	this->hpMax = (rand() % (level * 10)) + (level * 2);
 	this->hp = this->hpMax;
 	this->strength = this->lvl * 1;
-	this->defence = rand() % lvl*5 + 1;
+	defence = rand() % 5 + 1;
 	exp = 4;
 	aimX = 224;
 	aimY = 224;
@@ -66,11 +64,9 @@ Enemy::Enemy(Map &map, unsigned int c){
 	int randomElementX = 0;
 	int randomElementY = 0;
 	bool cont = true;
-	//srand(c);
 	while (cont) {
 		randomElementX = 1 + rand() % (WIDTH_MAP - 1);
 		randomElementY = 1 + rand() % (HEIGHT_MAP - 1);
-		//char C = map.getchar(randomElementY , randomElementX);
 		if(map.getchar(randomElementY , randomElementX) != '1'){
 			x = randomElementX*32;
 			y = randomElementY*32;

@@ -21,7 +21,6 @@ protected:
 	int effect;
 	int is;
 public:
-	//friend class Player;
 	float getX(){return x;}
 	float getY(){return y;}
 	std::string getName(){return name;}
@@ -47,12 +46,13 @@ private:
 	int type;
 public:
 	Armor();
+	
 	virtual void makeEffect(Player &player);
-	virtual ~Armor();
 	virtual Armor* clone()const;
 	void setType(int _type){type = _type;}
 	
 	int getType(){return type;}
+	virtual ~Armor();
 };
 
 
@@ -61,15 +61,14 @@ class Weapon : public Item{
 private:
 	int coef;
 public:
-	virtual void makeEffect(Player &player);
 	Weapon();
-	virtual ~Weapon();
 	
-	//Pure virtual
+	virtual void makeEffect(Player &player);
 	virtual Weapon* clone()const;
 	void setCoef(int c){coef = c;}
 	
 	int getCoef(){return coef;}
+	virtual ~Weapon();
 };
 
 
@@ -78,14 +77,14 @@ class Potion : public Item{
 private:
 	int type;
 public:
-	virtual void makeEffect(Player &player);
-	virtual ~Potion();
 	Potion();
-	//Pure virtual
+	
+	virtual void makeEffect(Player &player);
 	virtual Potion* clone()const;
 	void setType(int _type){type = _type;}
 	
 	int getType(){return type;}
+	virtual ~Potion();
 };
 
 

@@ -35,7 +35,6 @@ public:
 	char& getchar(int i, int j);
 	void setMap(std::string filename);
 	void drawMap(RenderWindow& window, View &view);
-	//std::vector<std::string>& getMap(){ return TileMap;}//get one
 };
 
 #endif /* map_hpp */

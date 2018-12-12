@@ -32,7 +32,6 @@ void Potion::makeEffect(Player &player){
 void Item::setCOORD(Map &map){
 	int randomElementX = 0;
 	int randomElementY = 0;
-	//srand((int)time(NULL));
 	int countStone = 1;
 	while(countStone > 0){
 		randomElementX = 1 + rand() % (WIDTH_MAP - 1);

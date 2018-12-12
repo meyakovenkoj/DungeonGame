@@ -33,12 +33,10 @@ Engine::Engine()
 	dieBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/audio/death.ogg");
 	die.setBuffer(dieBuffer);
 	
-	//it.randomMapGenerate(map);
 	
-	unsigned int c = (unsigned int)time(0);
 	
 	for(int i = 0; i < 100; i++){
-		Enemy buf(map, c);
+		Enemy buf(map);
 		enemies.push_back(buf);
 	}
 	for(int i = 0; i < 100; i++){
@@ -71,13 +69,13 @@ Engine::Engine()
 
 void Engine::start()
 {
+	Vector2i pixelPos;
+	Vector2f pos;
 	bool select = false;
 	while (window.isOpen())
 	{
-		Vector2i pixelPos = Mouse::getPosition(window);//забираем коорд курсора
-		Vector2f pos = window.mapPixelToCoords(pixelPos);
+
 		if(window.waitEvent(event))
-		//while (window.waitEvent(event))
 		{
 			switch (event.type)
 			{
@@ -88,6 +86,8 @@ void Engine::start()
 					
 				case Event::MouseButtonPressed:
 					if (event.key.code == Mouse::Left){
+						pixelPos = Mouse::getPosition(window);
+						pos = window.mapPixelToCoords(pixelPos);
 							if (p.getSprite().getGlobalBounds().contains(pos.x, pos.y))
 							{
 								p.getSprite().setColor(Color::Green);
@@ -95,11 +95,12 @@ void Engine::start()
 							}
 
 					}
-					if (select)//если выбрали объект
+					if (select)
 						if (event.key.code == Mouse::Right){
 							p.getSprite().setColor(Color::White);
-							pixelPos = Mouse::getPosition(window);//забираем коорд курсора
+							pixelPos = Mouse::getPosition(window);
 							pos = window.mapPixelToCoords(pixelPos);
+							
 							for(auto & elem : undeads)
 								elem.setAim(pos.x, pos.y);
 						}
@@ -107,9 +108,7 @@ void Engine::start()
 					
 					
 				case sf::Event::KeyPressed:
-					//menu.unshow();
 					input();
-					//p.update(map);
 					me.setPnt(p.getSprite().getPosition().x, p.getSprite().getPosition().y);
 					updateEnemies();
 					updateUndead();
@@ -120,7 +119,6 @@ void Engine::start()
 					break;
 			}
 			
-			//break;
 		}
 		
 		if(me.getHp() <= 0){
@@ -177,12 +175,6 @@ void Engine::start()
 	}
 }
 
-/*void Engine::updateEnemies(){
-	for (auto & element : enemies) {
-		element.setAim(me.getX(), me.getY());
-		element.move(map);
-	}
-}*/
 
 void Engine::updateEnemies() {
 	int aiMove;
@@ -280,8 +272,8 @@ void Engine::processUndeadMove(int undeadIndex, int targetX, int targetY)
 {
 	char moveTile = map.getchar(targetY, targetX);
 	
-	if((targetX == p.getX()/32)&&(targetY == p.getY()/32))
-		return;
+//	if((targetX == p.getX()/32)&&(targetY == p.getY()/32))
+//		return;
 	
 	switch (moveTile) {
 		case '2':
@@ -310,7 +302,6 @@ void Engine::drawUndead(){
 void Engine::drawItem(){
 	for (auto & element : items) {
 		it.getSprite().setPosition(element->getX(), element->getY());
-		//std::cout <<element->getX() << "   " << element->getY() <<std::endl;
 		switch (element->what()) {
 			case 0:
 				it.getSprite().setTextureRect(IntRect(96,0,32,32));

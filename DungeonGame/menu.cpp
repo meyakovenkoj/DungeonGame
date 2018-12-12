@@ -10,11 +10,9 @@
 #include "menu.hpp"
 
 void Menu::create(View view){
-
 	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/images/backmenu.png");
 	s_quest.setTexture(quest_texture);
 	s_quest.setTextureRect(IntRect(0,0,256,480));
-	//s_quest.setScale(0.6f, 0.6f);
 	
 	font.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/CyrilicOld.TTF");
 	text.setFont(font);
@@ -26,7 +24,6 @@ void Menu::create(View view){
 }
 
 Menu::Menu(View view){
-
 	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/images/missionbg.jpg");
 	s_quest.setTexture(quest_texture);
 	s_quest.setTextureRect(IntRect(0,0,340,510));
@@ -42,20 +39,12 @@ Menu::Menu(View view){
 }
 
 void Menu::getInfo(Player& p){
-	//if (showMissionText) {
-	
 	text.setString(p.setSTR() + "\n\n\n\n\n\n" + p.getLog().str());
-		//showMissionText = false;
-	//}else
-//	showMissionText = true;
 }
 
 void Menu::draw(RenderWindow &window){
-	//if (!showMissionText) {
-		window.draw(s_quest);
-		window.draw(text);
-		
-	//}
+	window.draw(s_quest);
+	window.draw(text);
 }
 
 void Menu::setPos(View view){

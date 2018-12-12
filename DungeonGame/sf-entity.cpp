@@ -52,12 +52,6 @@ bool Entity::canMove(Map & Map){
 	
 	if(Map.TileMap[i][j] == '1')
 		return false;
-	else
-		if(Map.TileMap[i][j] == '3'){
-			//Map.TileMap[i+1][j] = '3';
-			Map.TileMap[i][j] = '2';
-			return true;
-		}
 	return true;
 }
 
