@@ -15,7 +15,7 @@ Entity::Entity(std::string F, float X, float Y, float W, float H){
 	File = F;
 	w = W;
 	h = H;
-	texture.loadFromFile("/Users/yakovenko/Documents/Infa/classes-for-game/classes-for-game/images/" + File);
+	texture.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/" + File);
 	sprite.setTexture(texture);
 	x = X;
 	y = Y;
@@ -30,7 +30,7 @@ void Entity::create(std::string F, float X, float Y, float W, float H){
 	File = F;
 	w = W;
 	h = H;
-	texture.loadFromFile("/Users/yakovenko/Documents/Infa/classes-for-game/classes-for-game/images/" + File);
+	texture.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/" + File);
 	sprite.setTexture(texture);
 	x = X;
 	y = Y;

@@ -10,11 +10,11 @@
 #include "menu.hpp"
 
 void Menu::create(View view){
-	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/images/backmenu.png");
+	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/backmenu.png");
 	s_quest.setTexture(quest_texture);
 	s_quest.setTextureRect(IntRect(0,0,256,480));
 	
-	font.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/CyrilicOld.TTF");
+	font.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/CyrilicOld.TTF");
 	text.setFont(font);
 	text.setCharacterSize(20);
 	text.setFillColor(Color::Black);
@@ -24,12 +24,12 @@ void Menu::create(View view){
 }
 
 Menu::Menu(View view){
-	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/images/missionbg.jpg");
+	quest_texture.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/missionbg.jpg");
 	s_quest.setTexture(quest_texture);
 	s_quest.setTextureRect(IntRect(0,0,340,510));
 	s_quest.setScale(0.6f, 0.6f);
 	
-	font.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/CyrilicOld.TTF");
+	font.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/CyrilicOld.TTF");
 	text.setFont(font);
 	text.setCharacterSize(24);
 	text.setFillColor(Color::Black);

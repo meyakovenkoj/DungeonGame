@@ -17,8 +17,8 @@ Engine::Engine()
 	p.create("player2.png", 224, 224, 32, 32);
 	undead.create("undead.png",0, 0, 32, 32);
 	//KOSTIL'
-	undead.getTexture().loadFromFile("/Users/yakovenko/Desktop/undead.png");
-	undead.getSprite().setTexture(undead.getTexture());
+//	undead.getTexture().loadFromFile("/Users/yakovenko/Desktop/undead.png");
+//	undead.getSprite().setTexture(undead.getTexture());
 	//this
 	
 	map.create("map.tmx");
@@ -26,10 +26,10 @@ Engine::Engine()
 	menu.create(view);
 	
 	
-	shootBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/audio/quietShaker.ogg");
+	shootBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/audio/quietShaker.ogg");
 	shoot.setBuffer(shootBuffer);
 	
-	dieBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/audio/death.ogg");
+	dieBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/audio/death.ogg");
 	die.setBuffer(dieBuffer);
 	
 	
@@ -123,7 +123,7 @@ void Engine::start()
 		if(me.getHp() <= 0){
 			Text dead;
 			Font font;
-			font.loadFromFile("/Users/yakovenko/Documents/Infa/DungeonGame/DungeonGame/CyrilicOld.TTF");
+			font.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/CyrilicOld.TTF");
 			dead.setFont(font);
 			dead.setCharacterSize(30);
 			dead.setFillColor(Color::Red);

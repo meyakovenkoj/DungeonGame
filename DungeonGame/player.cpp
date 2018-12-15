@@ -12,10 +12,9 @@
 Player::Player(){
 	dx = 0;
 	dy = 0;
-	speed = 0;
 	dir = 0;
 	alive = true;
-	hpMax = 100;
+	hpMax = 1;
 	hp = hpMax;
 	exp = 0;
 	lvl = 1;
@@ -81,7 +80,6 @@ void Player::addExperience(int _experience) {
 Player::Player(float X, float Y){
 	dx = 0;
 	dy = 0;
-	speed = 0;
 	dir = 0;
 	alive = true;
 	hpMax = 100;
