@@ -25,6 +25,7 @@
 		7372FE4021BBC90400F566AB /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3B21BBC90400F566AB /* sfml-system.framework */; };
 		7372FE4121BBC90400F566AB /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3C21BBC90400F566AB /* SFML.framework */; };
 		7372FE4A21BD6AC800F566AB /* Inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE4821BD6AC700F566AB /* Inventory.cpp */; };
+		737AF0AE21C8240A00A5C010 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 737AF0AD21C8240A00A5C010 /* draw.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		7372FE3C21BBC90400F566AB /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
 		7372FE4821BD6AC700F566AB /* Inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Inventory.cpp; sourceTree = "<group>"; };
 		7372FE4921BD6AC700F566AB /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		737AF0AD21C8240A00A5C010 /* draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				7342DF6A21C134E800996E6E /* engine.cpp */,
 				7342DF6B21C134E800996E6E /* engine.hpp */,
+				737AF0AD21C8240A00A5C010 /* draw.cpp */,
 				7342DF6C21C134E800996E6E /* input.cpp */,
 				7311599521C06329008E0101 /* myarray.hpp */,
 				7372FE4221BBCAAF00F566AB /* Logic source */,
@@ -235,6 +238,7 @@
 				7342DF6E21C134E800996E6E /* input.cpp in Sources */,
 				7372FE3021BBC8A000F566AB /* Item.cpp in Sources */,
 				7372FE3221BBC8A000F566AB /* enemy.cpp in Sources */,
+				737AF0AE21C8240A00A5C010 /* draw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

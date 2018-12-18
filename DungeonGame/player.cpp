@@ -10,11 +10,13 @@
 
 
 Player::Player(){
+	x = 224;
+	y = 224;
 	dx = 0;
 	dy = 0;
 	dir = 0;
 	alive = true;
-	hpMax = 1;
+	hpMax = 10;
 	hp = hpMax;
 	exp = 0;
 	lvl = 1;
@@ -26,10 +28,10 @@ Player::Player(){
 	sp[MANA].name = "Mana";
 	sp[MANA].shortname = "MN";
 	
-	sp[LOVKOST].name = "Lovkost'";
-	sp[LOVKOST].shortname = "LVK";
+	sp[LOVKOST].name = "Agility";
+	sp[LOVKOST].shortname = "AGL";
 	
-	sp[NECRO].name = "Necromant";
+	sp[NECRO].name = "Necromancy";
 	sp[NECRO].shortname = "NCR";
 	
 	sp[NONE].name = "None";
@@ -82,7 +84,7 @@ Player::Player(float X, float Y){
 	dy = 0;
 	dir = 0;
 	alive = true;
-	hpMax = 100;
+	hpMax = 10;
 	hp = hpMax;
 	exp = 0;
 	lvl = 1;
@@ -123,3 +125,49 @@ std::string Player::setSTR(){
 	return EString.str();
 }
 
+void Player::load(std::string file){
+	float _x, _y;
+	int _h, _e, _l, _d, _s, _m, _a, _n;
+	std::ifstream ff;
+	ff.open("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + file);
+	if(ff.is_open()){
+		ff >> _x >> _y >> _h >> _e >> _l >> _d >> _s >> _m >> _a >> _n;
+		hpMax = _h;
+		hp = hpMax;
+		exp = _e;
+		lvl = _l;
+		defence = _d;
+		
+		x = _x;
+		y = _y;
+		
+		sp[STRENGTH].points = _s;
+		
+		sp[MANA].points = _m;
+		
+		sp[LOVKOST].points = _a;
+		
+		sp[NECRO].points = _n;
+		
+		sp[NONE].points = 0;
+		
+		ff.close();
+		log << "\nLOADED\n" << file << '\n';
+	}else{
+		log << "\nInit start\n";
+	}
+	
+}
+
+void Player::save(std::string file){
+	std::ofstream ff;
+	ff.open("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + file);
+	if(ff.is_open()){
+		ff << x << ' ' << y << ' ' << hpMax << ' ' << exp << ' ' << lvl << ' ' << defence << ' ' << sp[STRENGTH].points << ' ' << sp[MANA].points << ' ' << sp[LOVKOST].points << ' ' << sp[NECRO].points << std::endl;
+		ff.close();
+		log << "\nSAVED\n" << file << '\n';
+	}else{
+		log << "\nFAILED\n";
+	}
+	
+}

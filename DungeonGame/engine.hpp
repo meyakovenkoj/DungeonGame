@@ -16,6 +16,7 @@
 #include "enemy.hpp"
 #include "menu.hpp"
 #include "undead.hpp"
+//#include "start-menu.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
@@ -39,16 +40,21 @@ private:
 	Sound shoot;
 	SoundBuffer dieBuffer;
 	Sound die;
+	Font font;
 	
 	std::vector<Enemy> enemies;
 	std::vector<Undead> undeads;
 	std::vector<Item *> items;
 	
 public:
-
 	Engine();
 	void input();
-	void start();
+	bool start();
+	void startscreen();
+	void gameRunning();
+	//void loadEntities(std::string file);
+	//void getText(std::string & str);
+	void loadScreen(std::string & str);
 	void updateEnemies();
 	void updateUndead();
 	void drawEnemies();
@@ -57,5 +63,6 @@ public:
 	void processItems();
 	void processEnemyMove(int enemyIndex, int targetX, int targetY);
 	void processUndeadMove(int undeadIndex, int targetX, int targetY);
+	//RenderWindow & getWin(){return window;}
 };
 #endif /* engine_hpp */

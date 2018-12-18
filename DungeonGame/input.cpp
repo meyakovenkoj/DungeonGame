@@ -58,6 +58,9 @@ void Engine::input()
 	}
 	
 	if(Keyboard::isKeyPressed(Keyboard::Tab)){
-		menu.getInfo(me);
+		std::string save;
+		loadScreen(save);
+		me.save(save);
+		save.erase();
 	}
 }

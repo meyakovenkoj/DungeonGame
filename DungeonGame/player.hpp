@@ -12,6 +12,7 @@
 
 #include <string>
 #include <sstream>
+#include <fstream>
 #include "creature.hpp"
 #include "myarray.hpp"
 
@@ -127,6 +128,14 @@ public:
 	 \return log Строка логов
 	 */
 	std::ostringstream & getLog(){return log;}
+	/*!
+	 Загрузчик характеристик из файла.
+	 */
+	void load(std::string file);
+	/*!
+	 Сохраняет текущее состояние игрока в файл.
+	 */
+	void save(std::string file);
 };
 
 #endif /* player_hpp */

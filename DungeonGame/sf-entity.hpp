@@ -31,6 +31,8 @@ public:
 	float getY(){return y;}
 	
 	void setDir(int d){dir = d;}
+	void setX(int _x){x = _x;}
+	void setY(int _y){y = _y;}
 	Texture& getTexture(){return texture;}
 	Sprite& getSprite(){return sprite;}
 	void control(int c, Map& Map);

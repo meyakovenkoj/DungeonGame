@@ -55,7 +55,7 @@ Enemy::Enemy(Map &map){
 	this->hp = this->hpMax;
 	this->strength = this->lvl * 1;
 	defence = rand() % 5 + 1;
-	exp = 4;
+	exp = lvl+1;
 	aimX = 224;
 	aimY = 224;
 	alive = true;

@@ -6,8 +6,9 @@
 //  Copyright © 2018 Ivan Yakovenko. All rights reserved.
 //
 
-#include <SFML/Graphics.hpp>
+//#include "start-menu.h"
 #include <iostream>
+//#include "start-menu.h"
 #include "engine.hpp"
 #include "myarray.hpp"
 
@@ -17,10 +18,15 @@ using namespace sf;
 
 int main()
 {
+	bool c = 1;
+	do{
+		Engine engine;
 	
-	Engine engine;
-	
-	engine.start();
+	//startmenu(engine.window);
+		engine.startscreen();
+		c = engine.start();
+	}while (c);
+	//engine.gameRunning();
 	
 	return 0;
 }
