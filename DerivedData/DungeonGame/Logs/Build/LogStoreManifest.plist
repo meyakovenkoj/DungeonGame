@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>E20EBCFD-2863-436F-BFA1-D9DEC6B1C03A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E20EBCFD-2863-436F-BFA1-D9DEC6B1C03A.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>DungeonGame project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>DungeonGame</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build DungeonGame</string>
+			<key>timeStartedRecording</key>
+			<real>566833780.67001796</real>
+			<key>timeStoppedRecording</key>
+			<real>566833781.97666001</real>
+			<key>title</key>
+			<string>Build DungeonGame</string>
+			<key>uniqueIdentifier</key>
+			<string>E20EBCFD-2863-436F-BFA1-D9DEC6B1C03A</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
