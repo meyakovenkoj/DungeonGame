@@ -24,7 +24,6 @@
 		7372FE3F21BBC90400F566AB /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3A21BBC90400F566AB /* sfml-audio.framework */; };
 		7372FE4021BBC90400F566AB /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3B21BBC90400F566AB /* sfml-system.framework */; };
 		7372FE4121BBC90400F566AB /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7372FE3C21BBC90400F566AB /* SFML.framework */; };
-		7372FE4A21BD6AC800F566AB /* Inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7372FE4821BD6AC700F566AB /* Inventory.cpp */; };
 		737AF0AE21C8240A00A5C010 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 737AF0AD21C8240A00A5C010 /* draw.cpp */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +69,6 @@
 		7372FE3A21BBC90400F566AB /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../../../Library/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
 		7372FE3B21BBC90400F566AB /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		7372FE3C21BBC90400F566AB /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
-		7372FE4821BD6AC700F566AB /* Inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Inventory.cpp; sourceTree = "<group>"; };
-		7372FE4921BD6AC700F566AB /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
 		737AF0AD21C8240A00A5C010 /* draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,8 +135,6 @@
 		7372FE4221BBCAAF00F566AB /* Logic source */ = {
 			isa = PBXGroup;
 			children = (
-				7372FE4821BD6AC700F566AB /* Inventory.cpp */,
-				7372FE4921BD6AC700F566AB /* Inventory.h */,
 				7372FE2A21BBC8A000F566AB /* creature.cpp */,
 				7372FE2121BBC89F00F566AB /* creature.hpp */,
 				7372FE2021BBC89F00F566AB /* enemy.cpp */,
@@ -230,7 +225,6 @@
 				7319BF7321AC781600AC3F49 /* main.cpp in Sources */,
 				7372FE3421BBC8A000F566AB /* undead.cpp in Sources */,
 				7372FE3321BBC8A000F566AB /* sf-entity.cpp in Sources */,
-				7372FE4A21BD6AC800F566AB /* Inventory.cpp in Sources */,
 				7372FE3121BBC8A000F566AB /* menu.cpp in Sources */,
 				7372FE2F21BBC8A000F566AB /* map.cpp in Sources */,
 				7372FE3521BBC8A000F566AB /* player.cpp in Sources */,

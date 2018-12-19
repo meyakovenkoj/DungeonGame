@@ -11,13 +11,7 @@
 
 void Engine::startscreen(){
 	Texture menuBackground;
-	//menuTexture1.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/111.png");
 	Text menuText1, menuText2, menuText3;
-//	Sound startS;
-//	SoundBuffer startBuffer;
-//	startBuffer.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/audio/start.wav");
-//	startS.setBuffer(startBuffer);
-//	startS.play();
 	menuText1.setFont(font);
 	menuText1.setCharacterSize(30);
 	menuText1.setStyle(Text::Bold);
@@ -33,22 +27,15 @@ void Engine::startscreen(){
 	menuText3.setStyle(Text::Bold);
 	menuText3.setString("EXIT");
 	menuText3.setPosition(100, 150);
-	//menuTexture2.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/222.png");
-	//menuTexture3.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/333.png");
-	//aboutTexture.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/about.png");
 	menuBackground.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/knight.png");
-	//Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3), about(aboutTexture), menuBg(menuBackground);
 	Sprite menuBg(menuBackground);
 	bool isMenu = 1;
 	int menuNum = 0;
 	std::string str;
-	//menu1.setPosition(100, 30);
-	//menu2.setPosition(100, 90);
-	//menu3.setPosition(100, 150);
 	menuBg.setPosition(640, 0);
 	menuBg.setScale(-0.9, 0.9);
 	
-	//////////////////////////////МЕНЮ///////////////////
+	
 	while (isMenu)
 	{
 		if(window.waitEvent(event))
@@ -128,7 +115,6 @@ void Engine::loadScreen(std::string & str){
 	str = "init.txt";
 	window.clear(Color(128,106,89));
 	
-	//////////////////////////////МЕНЮ///////////////////
 	while (isLoad)
 	{
 		if(window.waitEvent(event))
@@ -149,8 +135,7 @@ void Engine::loadScreen(std::string & str){
 				isLoad = false;
 			}
 		}
-		//save1.setPosition(window.getView().getCenter().x-window.getSize().x/2, window.getView().getCenter().y-window.getSize().y/2);
-		//view.setCenter(window.getView().getCenter());
+
 		window.draw(save1);
 		window.draw(save2);
 		window.draw(save3);
@@ -159,26 +144,3 @@ void Engine::loadScreen(std::string & str){
 		window.display();
 	}
 }
-
-//void Engine::getText(std::string & str){
-//	Text text("", font, 50);
-//	text.setFillColor(Color::White);
-//	text.setStyle(Text::Bold);
-//	text.setPosition(100, 150);
-//
-//	while(event.type != Event::Closed){
-//	// в event цикле...
-//	if (event.type == Event::TextEntered)
-//	{
-//		// отсекаем не ASCII символы
-//		if (event.text.unicode < 128)
-//		{
-//			str += static_cast<char>(event.text.unicode);
-//			text.setString(str);
-//		}
-//	}
-//
-//
-//	window.draw(text);
-//}
-//}

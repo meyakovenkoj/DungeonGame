@@ -52,8 +52,6 @@ public:
 	bool start();
 	void startscreen();
 	void gameRunning();
-	//void loadEntities(std::string file);
-	//void getText(std::string & str);
 	void loadScreen(std::string & str);
 	void updateEnemies();
 	void updateUndead();
@@ -63,6 +61,5 @@ public:
 	void processItems();
 	void processEnemyMove(int enemyIndex, int targetX, int targetY);
 	void processUndeadMove(int undeadIndex, int targetX, int targetY);
-	//RenderWindow & getWin(){return window;}
 };
 #endif /* engine_hpp */

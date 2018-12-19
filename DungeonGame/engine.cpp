@@ -16,10 +16,6 @@ Engine::Engine()
 	p.create("player2.png", me.getX(), me.getY(), 32, 32);
 	undead.create("undead.png",0, 0, 32, 32);
 
-	//KOSTIL'
-//	undead.getTexture().loadFromFile("/Users/yakovenko/Desktop/undead.png");
-//	undead.getSprite().setTexture(undead.getTexture());
-	//this
 	
 	font.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/CyrilicOld.TTF");
 	
@@ -66,7 +62,6 @@ Engine::Engine()
 		buf->setCOORD(map);
 		items.push_back(buf);
 	}
-	//startmenu(window);
 	
 }
 
@@ -75,15 +70,12 @@ Engine::Engine()
 bool Engine::start()
 {
 	
-//	me.load("test.txt");
 	p.getSprite().setPosition(me.getX(), me.getY());
 	p.setX(me.getX());
 	p.setY(me.getY());
-	//view.setCenter(p.getX(), p.getY());
 	Vector2i pixelPos;
 	Vector2f pos;
 	bool select = false;
-	//Texture menuTexture1, menuTexture2, menuTexture3, aboutTexture, menuBackground;
 	
 	while (window.isOpen())
 	{
@@ -190,37 +182,13 @@ bool Engine::start()
 		}
 		
 		
-//
-//		view.setCenter(p.getX(), p.getY());
-//
-//		window.setView(view);
-//
-//		window.clear(Color(128,106,89));
-//
-//		map.drawMap(window, view);
-//
-//		drawEnemies();
-//
-//		drawUndead();
-//
-//		drawItem();
-//
-//		window.draw(p.getSprite());
-//
-//		menu.getInfo(me);
-//
-//		menu.setPos(view);
-//
-//		menu.draw(window);
-//
-//		window.display();
+
 	}
-	//me.save("test.txt");
 	return 0;
 }
 
-void Engine::gameRunning(){//ф-ция перезагружает игру , если это необходимо
-	if (start()) { gameRunning(); }////если startGame() == true, то вызываем занова ф-цию isGameRunning, которая в свою очередь опять вызывает startGame()
+void Engine::gameRunning(){
+	if (start()) { gameRunning(); }
 }
 
 void Engine::updateEnemies() {
@@ -318,9 +286,7 @@ void Engine::updateUndead() {
 void Engine::processUndeadMove(int undeadIndex, int targetX, int targetY)
 {
 	char moveTile = map.getchar(targetY, targetX);
-	
-//	if((targetX == p.getX()/32)&&(targetY == p.getY()/32))
-//		return;
+
 	
 	switch (moveTile) {
 		case '2':
