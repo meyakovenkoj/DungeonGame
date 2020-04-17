@@ -9,16 +9,16 @@
 #include "map.hpp"
 
 Map::Map(std::string filename){
-	setMap("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + filename);
+	setMap("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/" + filename);
 }
 
 void Map::create(std::string filename){
-	setMap("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + filename);
+	setMap("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/" + filename);
 }
 
 void Map::setMap(std::string filename){
 	std::ifstream f(filename);
-	if (!f.is_open()){ 
+	if (!f.is_open()){
 		std::cout << "Файл не может быть открыт!\n";
 		throw std::invalid_argument("can't open map");
 	}
@@ -29,7 +29,7 @@ void Map::setMap(std::string filename){
 		while (std::getline(f, buf)) {
 			TileMap.push_back(buf);
 		}
-		map.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/walls.png");
+		map.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/images/walls.png");
 		s_map.setTexture(map);
 
 	}

@@ -27,7 +27,7 @@ void Engine::startscreen(){
 	menuText3.setStyle(Text::Bold);
 	menuText3.setString("EXIT");
 	menuText3.setPosition(100, 150);
-	menuBackground.loadFromFile("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/images/knight.png");
+	menuBackground.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/images/knight.png");
 	Sprite menuBg(menuBackground);
 	bool isMenu = 1;
 	int menuNum = 0;
