@@ -113,7 +113,7 @@ bool Engine::start()
 					break;
 					
 				case Event::MouseButtonPressed:
-					if (event.key.code == Mouse::Left){
+					if (static_cast<sf::Mouse::Button>(event.key.code) == Mouse::Left){
 						pixelPos = Mouse::getPosition(window);
 						pos = window.mapPixelToCoords(pixelPos);
 							if (p.getSprite().getGlobalBounds().contains(pos.x, pos.y))
@@ -124,7 +124,7 @@ bool Engine::start()
 
 					}
 					if (select)
-						if (event.key.code == Mouse::Right){
+						if (static_cast<sf::Mouse::Button>(event.key.code) == Mouse::Right){
 							p.getSprite().setColor(Color::White);
 							pixelPos = Mouse::getPosition(window);
 							pos = window.mapPixelToCoords(pixelPos);

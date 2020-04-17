@@ -190,7 +190,7 @@
 		7319BF6721AC781500AC3F49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Ivan Yakovenko";
 				TargetAttributes = {
 					7319BF6E21AC781500AC3F49 = {
@@ -354,6 +354,7 @@
 		7319BF7721AC781600AC3F49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35279NZT97;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -368,6 +369,7 @@
 		7319BF7821AC781600AC3F49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35279NZT97;
 				FRAMEWORK_SEARCH_PATHS = (
