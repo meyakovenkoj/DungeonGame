@@ -17,17 +17,17 @@ Engine::Engine()
 	undead.create("undead.png",0, 0, 32, 32);
 
 	
-	font.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/CyrilicOld.TTF");
+	font.loadFromFile("extra/CyrilicOld.TTF");
 	
 	map.create("map.tmx");
 	enemy.create("monster.png", 224, 256, 32, 32);
 	menu.create(view);
 	
 	
-	shootBuffer.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/audio/quietShaker.ogg");
+	shootBuffer.loadFromFile("extra/audio/quietShaker.ogg");
 	shoot.setBuffer(shootBuffer);
 	
-	dieBuffer.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/audio/death.ogg");
+	dieBuffer.loadFromFile("extra/audio/death.ogg");
 	die.setBuffer(dieBuffer);
 	
 	
@@ -113,7 +113,7 @@ bool Engine::start()
 					break;
 					
 				case Event::MouseButtonPressed:
-					if (event.key.code == Mouse::Left){
+					if (static_cast<sf::Mouse::Button>(event.key.code) == Mouse::Left){
 						pixelPos = Mouse::getPosition(window);
 						pos = window.mapPixelToCoords(pixelPos);
 							if (p.getSprite().getGlobalBounds().contains(pos.x, pos.y))
@@ -124,7 +124,7 @@ bool Engine::start()
 
 					}
 					if (select)
-						if (event.key.code == Mouse::Right){
+						if (static_cast<sf::Mouse::Button>(event.key.code) == Mouse::Right){
 							p.getSprite().setColor(Color::White);
 							pixelPos = Mouse::getPosition(window);
 							pos = window.mapPixelToCoords(pixelPos);
