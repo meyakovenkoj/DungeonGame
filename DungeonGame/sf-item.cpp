@@ -10,7 +10,7 @@
 
 sfItem::sfItem(std::string F){
 	File = F;
-	texture.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/images/" + File);
+	texture.loadFromFile("extra/images/" + File);
 	sprite.setTexture(texture);
 	sprite.setTextureRect(IntRect(0,0,32,32));
 
@@ -18,7 +18,7 @@ sfItem::sfItem(std::string F){
 
 void sfItem::create(std::string F){
 	File = F;
-	texture.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/images/" + File);
+	texture.loadFromFile("extra/images/" + File);
 	sprite.setTexture(texture);
 	sprite.setTextureRect(IntRect(0,0,32,32));
 }

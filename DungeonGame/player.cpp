@@ -129,7 +129,7 @@ void Player::load(std::string file){
 	float _x, _y;
 	int _h, _e, _l, _d, _s, _m, _a, _n;
 	std::ifstream ff;
-	ff.open("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + file);
+	ff.open("extra" + file);
 	if(ff.is_open()){
 		ff >> _x >> _y >> _h >> _e >> _l >> _d >> _s >> _m >> _a >> _n;
 		hpMax = _h;
@@ -161,7 +161,7 @@ void Player::load(std::string file){
 
 void Player::save(std::string file){
 	std::ofstream ff;
-	ff.open("/Users/yakovenko/Documents/Infa/Programs_3_sem/DungeonGame/DungeonGame/" + file);
+	ff.open("extra" + file);
 	if(ff.is_open()){
 		ff << x << ' ' << y << ' ' << hpMax << ' ' << exp << ' ' << lvl << ' ' << defence << ' ' << sp[STRENGTH].points << ' ' << sp[MANA].points << ' ' << sp[LOVKOST].points << ' ' << sp[NECRO].points << std::endl;
 		ff.close();

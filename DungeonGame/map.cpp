@@ -9,11 +9,11 @@
 #include "map.hpp"
 
 Map::Map(std::string filename){
-	setMap("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/" + filename);
+	setMap("extra/" + filename);
 }
 
 void Map::create(std::string filename){
-	setMap("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/" + filename);
+	setMap("extra/" + filename);
 }
 
 void Map::setMap(std::string filename){
@@ -29,7 +29,7 @@ void Map::setMap(std::string filename){
 		while (std::getline(f, buf)) {
 			TileMap.push_back(buf);
 		}
-		map.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/images/walls.png");
+		map.loadFromFile("extra/images/walls.png");
 		s_map.setTexture(map);
 
 	}

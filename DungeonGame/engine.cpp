@@ -17,17 +17,17 @@ Engine::Engine()
 	undead.create("undead.png",0, 0, 32, 32);
 
 	
-	font.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/CyrilicOld.TTF");
+	font.loadFromFile("extra/CyrilicOld.TTF");
 	
 	map.create("map.tmx");
 	enemy.create("monster.png", 224, 256, 32, 32);
 	menu.create(view);
 	
 	
-	shootBuffer.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/audio/quietShaker.ogg");
+	shootBuffer.loadFromFile("extra/audio/quietShaker.ogg");
 	shoot.setBuffer(shootBuffer);
 	
-	dieBuffer.loadFromFile("/Users/ivanyakovenko/Documents/DungeonGame/DungeonGame/audio/death.ogg");
+	dieBuffer.loadFromFile("extra/audio/death.ogg");
 	die.setBuffer(dieBuffer);
 	
 	
