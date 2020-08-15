@@ -57,6 +57,7 @@ int Player::takeDamage(int attack)
 
 		if (hp <= 0)
 		{
+		    alive = false;
 			return 1;
 		}
 	}

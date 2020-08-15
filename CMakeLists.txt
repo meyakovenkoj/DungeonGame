@@ -51,3 +51,5 @@ if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(DungeonGame ${SFML_LIBRARIES})
 endif()
+
+add_subdirectory(Google_tests)
